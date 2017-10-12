@@ -13,7 +13,8 @@ ImageDialogQt::ImageDialogQt
     setObjectName("ImageDialogQt");
     QVBoxLayout* newBox = new QVBoxLayout();
 
-    imagePrev = new QLabel(tr("   Preview                                    "), this);
+    imagePrev = new QLabel(tr("Preview"), this);
+    imagePrev->setFixedWidth(300);
     imagePrev->setObjectName("labelPreview");
     imagePrev->setAlignment(Qt::AlignCenter);
     newBox->addWidget(imagePrev);
@@ -30,7 +31,7 @@ void ImageDialogQt::OnCurrentChanged(const QString &selectedFil)
     QPixmap pixmap = QPixmap(selectedFil);
     if (pixmap.isNull())
     {
-        imagePrev->setText("   No preview available!                      ");
+        imagePrev->setText("No preview available!");
     }
     else
     {
