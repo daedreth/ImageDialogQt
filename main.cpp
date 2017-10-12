@@ -10,6 +10,7 @@ int main(int argc, char *argv[])
     QTextStream out(stdout);
     QFileDialog* mpOpenDialog = new ImageDialogQt();
     mpOpenDialog->setAcceptMode(QFileDialog::AcceptOpen);
+    mpOpenDialog->setFixedWidth(mpOpenDialog->width() + 300);
     mpOpenDialog->exec();
 
     QString path = mpOpenDialog->selectedFiles().first();
