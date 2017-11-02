@@ -3,6 +3,7 @@
 #include <QStringList>
 #include <unistd.h>
 #include <imagedialogqt.h>
+#include <QFileInfo>
 
 int main(int argc, char *argv[])
 {
@@ -14,10 +15,14 @@ int main(int argc, char *argv[])
     mpOpenDialog->exec();
 
     QString path = mpOpenDialog->selectedFiles().first();
+    QFileInfo file(path);
 
-    out << path;
-    out.flush();
+    if(file.exists() && file.isFile())
+    {
+        out << path;
+        out.flush();
+    }
+
     std::exit(0);
-
     return a.exec();
 }
